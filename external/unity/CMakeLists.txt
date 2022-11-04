@@ -1,9 +1,8 @@
-cmake_minimum_required(VERSION 3.2.2)
-project(unity VERSION 2.4.1 LANGUAGES C)
-
 include(git-download)
 
 set(REPO_DIR ${PROJECT_SOURCE_DIR}/${PROJECT_NAME}-repo)
+
+if (${CMAKE_PROJECT_NAME} STREQUAL ArduinoFake)
 
 download_repo(
     URL "https://github.com/ThrowTheSwitch/Unity.git"
@@ -18,3 +17,5 @@ add_library(${PROJECT_NAME} STATIC
 target_include_directories(${PROJECT_NAME} PUBLIC
     ${REPO_DIR}/src
 )
+
+endif()
