@@ -13,4 +13,7 @@ add_subdirectory(external)
 enable_testing()
 
 add_subdirectory(src)
-add_subdirectory(test)
+
+if(${CMAKE_PROJECT_NAME} EQUAL ${PROJECT_NAME})
+  add_subdirectory(test)
+endif()
